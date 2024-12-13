@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title> ENGINNER APPLICATION</title>
+        <style>
+            *{
+                font-size: 40px;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            body{
+                background-color: rgb(222, 220, 245);
+            }
+            /* input[type = checkbox]{
+                height: 0.5em;
+                width: 2%;
+            } */
+        </style>
+    </head>
+    <body>
+        <center>
+        <h1> Engineer App </h1>
+        <form onsubmit = "show()">
+            
+            <input type="text" id="name" placeholder="Enter Your Name">
+            <br/><br/>
+            <label> Select Engg year</label>
+            <select id = "year">
+                <option value="fe"> FE</option>
+                <option value="se"> SE</option>
+                <option value="te"> TE</option>
+                <option value="Final e"> Final e</option>
+            </select>
+            <br/> <br/>
+            <input type="submit" >
+
+        
+        </form>
+
+        <h2 id="msg"></h2>
+
+        <script>
+            function show(){
+                event.preventDefault();
+                let name = document.getElementById("name")
+                let fe = document.getElementById('fe')
+                let se = document.getElementById('se')
+                let te = document.getElementById('te')
+                let Finale = document.getElementById('Finale')
+
+                let msg = document.getElementById("msg");
+
+
+                if(name.value === ""){
+                    alert("Name Cannot be empty")
+                    msg.innerHTML = ""
+                    name.focus();
+                    return;
+                }
+                if(name.value.trim() === ""){
+                    alert("Name should not be blankspaces")
+                    name.value = ""
+                    msg.innerHTML = ""
+                    name.focus();
+                    return;
+                }
+                if(! name.value.match(/^[A-Za-z ]+$/)){
+                    alert("Name only contains alphabets")
+                    name.value = ""
+                    msg.innerHTML = ""
+                    name.focus();
+                    return;
+                }
+
+                let choice= ""
+                if(year.value === "fe"){
+                    choice = "FE"
+                }else if (year.value === "se"){
+                    choice = "SE"
+                }else if (year.value === "te"){
+                    choice = "TE"
+                }
+                else {
+                    choice = "FinalE"
+                }
+
+                let ans = "Name = " +name.value+ " and in " + choice +" Year"
+                msg.innerHTML = ans;
+            
+            }
+        </script>
+    </center>
+        
+    </body>
+</html>
